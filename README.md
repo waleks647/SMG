@@ -1,20 +1,22 @@
-# Slimefun4 Addon
-This is an example Repository for a generic Slimefun4 Addon.
-In the top left is a button "Use this template", click this to create your own Addon for Slimefun4 using this basic template.
+# Info
+SimpleMaterialGenerators (SMG for short) is a Slimefun4 addon that helps aliviate some of the grind by providing simple generators that create simple materials.
 
-## How to create your own addon.
-This is a template repository that you can use to create your own Slimefun4 Addon.<br>
-We have also written an extensive step-by-step tutorial which you can find here:<br>
-https://github.com/Slimefun/Slimefun4/wiki/Developer-Guide
+## What it adds
+Currently it adds generators for:<br>
+Cobblestone - The basic generator<br>
+Stone and Smooth stone - Smelted versions of the Cobblestone generator<br>
+Gravel - Grinded version of the Cobblestone generator<br>
+Sand - Crushed version of the Gravel generator<br>
+Glass - Smelted version of the Sand generator<br>
+Netherrack - 'Composted' version of the Stone generator<br>
+Soul sand - 'Composted' version of the Sand generator<br>
 
-## Changing some important things
-Navigate to `src/main/java` and rename the package and the .java File to your liking.<br>
-Suggestion: "me.yourname.yourproject" (all lower case) and "ProjectName.java"<br>
-Example: "me.thebusybiscuit.cooladdon" and "CoolAddon.java"
-
-Navigate to `src/main/resources/plugin.yml` and change the "author" and "main" attributes.
-You may also want to change the description to something meaningful.
-
-Navigate to `pom.xml` and change the group id to "me.%Your name%" and change the artifact id to the name of your Project.
-
-After that you are good to go, you can now start developing your own Addon for Slimefun4.
+## Using the generators
+The generators by themselves will do nothing - at least not until they have a chest (directly) above them.<br>
+(There's a multiblock example in the SMG category).<br>
+Then they will start producing items.<br>
+Note that they won't all work at the same rate.<br>
+Generally the more process it takes to make one generator the more slow it will be.<br>
+Some of them don't abide by that principle - currently being the Netherrack generator and the Soul sand generator.<br>
+The reason for that is because they take more materials to craft a single of them<br>
+instead of being a single Cobblestone generator through a processing chain.
