@@ -26,3 +26,7 @@ instead of being a single Cobblestone generator through a processing chain.<br>
 ## Downloads
 You can find the prebuilt plugin in:<br>
 https://thebusybiscuit.github.io/builds/waleks647/SMG/master
+
+## Plans
+There are plans to add more generators on the future (once I figure out how to do it)<br>
+Namely a generator for Dirt, Water, Lava and Obsidian
