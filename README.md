@@ -20,3 +20,7 @@ Generally the more process it takes to make one generator the more slow it will 
 Some of them don't abide by that principle - currently being the Netherrack generator and the Soul sand generator.<br>
 The reason for that is because they take more materials to craft a single of them<br>
 instead of being a single Cobblestone generator through a processing chain.
+
+## Downloads
+You can find the prebuilt plugin in<br>
+https://thebusybiscuit.github.io/builds/waleks647/SMG/master
