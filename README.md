@@ -14,7 +14,7 @@ Soul sand - 'Composted' version of the Sand generator<br>
 ## Using the generators
 The generators by themselves will do nothing - at least not until they have a chest (directly) above them.<br>
 (There's a multiblock example in the SMG category).<br>
-Then they will start producing items.
+Then they will start producing items.<br>
 The rate of their production is measured in Slimefun Ticks (indicated by the `t` in the items' lore.<br>
 Note that they won't all work at the same rate.<br>
 Generally the more process it takes to make one generator the more slow it will be.<br>
