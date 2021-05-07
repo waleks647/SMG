@@ -11,6 +11,8 @@ import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
 
+import javax.annotation.Nonnull;
+
 public class GeneratorMultiblock extends SimpleSlimefunItem<ItemUseHandler> implements NotPlaceable {
 
     public GeneratorMultiblock(Category category, SlimefunItemStack item) {
@@ -21,6 +23,7 @@ public class GeneratorMultiblock extends SimpleSlimefunItem<ItemUseHandler> impl
         });
     }
 
+    @Nonnull
     @Override
     public ItemUseHandler getItemHandler() {
         return e -> {
@@ -28,5 +31,4 @@ public class GeneratorMultiblock extends SimpleSlimefunItem<ItemUseHandler> impl
             e.getPlayer().sendMessage("Psst, this Item is just a dummy. You need to place the actual generator down.");
         };
     }
-
 }
