@@ -16,5 +16,5 @@ You can find the prebuilt plugin in:<br>
 https://thebusybiscuit.github.io/builds/waleks647/SMG/master<br>
 
 ## Plans
-There are plans to add more generators on the future (once I figure out how to do it)<br>
-Namely generators for Dirt, Water, Lava, obsidian and dusts<br>.
+There are plans to add more generators in the future (once I figure out how to do it)<br>
+Namely generators for Dirt, Water, Lava, Obsidian and dusts.<br>
