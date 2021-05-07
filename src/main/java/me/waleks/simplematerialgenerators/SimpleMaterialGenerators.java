@@ -37,7 +37,7 @@ public class SimpleMaterialGenerators extends JavaPlugin implements SlimefunAddo
 
     @Override
     public String getBugTrackerURL() {
-        return null;
+        return "https://github.com/waleks647/SMG/issues";
     }
 
     @Nonnull

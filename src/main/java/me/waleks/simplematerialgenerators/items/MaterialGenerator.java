@@ -8,6 +8,8 @@ import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.libraries.paperlib.PaperLib;
+import io.github.thebusybiscuit.slimefun4.libraries.paperlib.features.blockstatesnapshot.*;
 
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -22,7 +24,7 @@ import org.bukkit.block.BlockState;
 
 public class MaterialGenerator extends SlimefunItem{
 	
-	int rate = 1;
+	int rate = 2;
 	int count = 0;
 	
 	ItemStack material;
@@ -50,14 +52,14 @@ public class MaterialGenerator extends SlimefunItem{
 	public void tick(Block b) {
 		Block targetBlock = b.getRelative(BlockFace.UP);
 		if (targetBlock.getType() == Material.CHEST) {
-			BlockState state = targetBlock.getState();
+			BlockState state = PaperLib.getBlockState(targetBlock, false).getState();
 			if (state instanceof InventoryHolder) {
 				Inventory inv = ((InventoryHolder) state).getInventory();
 				if (inv.firstEmpty() != -1) {
 					if (count >= rate) {
 						count = 0;
 						inv.addItem(material);
-					} else {
+					} else if (count < rate) {
 						count = count+1;
 					}
 				}
@@ -73,7 +75,7 @@ public class MaterialGenerator extends SlimefunItem{
 	
 	public final MaterialGenerator setRate(int rateTicks) {
 		
-		if (rateTicks >= 1) {this.rate = rateTicks;} else {this.rate = 1;}
+		if (rateTicks >= 2) {this.rate = rateTicks;} else {this.rate = 2;}
 		return this;
 		
 	}
