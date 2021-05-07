@@ -46,6 +46,11 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>com.github.thebusybiscuit</groupId>
+            <artifactId>CS-CoreLib2</artifactId>
+            <version>0.31.0</version>
+        </dependency>
+        <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
             <version>3.0.2</version>
@@ -67,5 +72,25 @@
                 </includes>
             </resource>
         </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+
+                <configuration>
+                    <relocations>
+                        <relocation>
+                            <pattern>io.github.thebusybiscuit.cscorelib2</pattern>
+                            <shadedPattern>me.waleks.simplematerialgenerators.cscorelib2</shadedPattern>
+                        </relocation>
+                    </relocations>
+                    <filters>
+                        <!-- No point including the entire CS-CoreLib2 so let's only include the needed files -->
+                        <include>**/thebusybiscuit/cscorelib2/blocks/**</include>
+                    </filters>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>
