@@ -1,35 +1,31 @@
 package me.waleks.simplematerialgenerators.items;
 
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
+import io.github.thebusybiscuit.slimefun4.libraries.paperlib.PaperLib;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
+import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.libraries.paperlib.PaperLib;
-import io.github.thebusybiscuit.slimefun4.libraries.paperlib.features.blockstatesnapshot.*;
-
 import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
-import org.bukkit.inventory.BlockInventoryHolder;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.InventoryHolder;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.BlockState;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.inventory.ItemStack;
 
-public class MaterialGenerator extends SlimefunItem{
-	
-	int rate = 2;
-	int count = 0;
-	
-	ItemStack material;
-	
-	public MaterialGenerator(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+public class MaterialGenerator extends SlimefunItem {
+
+    private int rate = 2;
+    private int count = 0;
+    private ItemStack item;
+
+    @ParametersAreNonnullByDefault
+    public MaterialGenerator(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
     }
 
@@ -38,6 +34,7 @@ public class MaterialGenerator extends SlimefunItem{
         addItemHandler(new BlockTicker() {
 
             @Override
+            @ParametersAreNonnullByDefault
             public void tick(Block b, SlimefunItem sf, Config data) {
                 MaterialGenerator.this.tick(b);
             }
@@ -49,35 +46,32 @@ public class MaterialGenerator extends SlimefunItem{
         });
     }
 
-	public void tick(Block b) {
-		Block targetBlock = b.getRelative(BlockFace.UP);
-		if (targetBlock.getType() == Material.CHEST) {
-			BlockState state = PaperLib.getBlockState(targetBlock, false).getState();
-			if (state instanceof InventoryHolder) {
-				Inventory inv = ((InventoryHolder) state).getInventory();
-				if (inv.firstEmpty() != -1) {
-					if (count >= rate) {
-						count = 0;
-						inv.addItem(material);
-					} else if (count < rate) {
-						count = count+1;
-					}
-				}
-			}
-		}
-	}
-	
-	public final MaterialGenerator setItem(String itemSet) {
-		
-		this.material = new ItemStack(Material.getMaterial(itemSet));
-		return this;
-	}
-	
-	public final MaterialGenerator setRate(int rateTicks) {
-		
-		if (rateTicks >= 2) {this.rate = rateTicks;} else {this.rate = 2;}
-		return this;
-		
-	}
+    public void tick(@Nonnull Block b) {
+        Block targetBlock = b.getRelative(BlockFace.UP);
+        if (targetBlock.getType() == Material.CHEST) {
+            BlockState state = PaperLib.getBlockState(targetBlock, false).getState();
+            if (state instanceof InventoryHolder) {
+                Inventory inv = ((InventoryHolder) state).getInventory();
+                if (inv.firstEmpty() != -1) {
+                    if (this.count >= this.rate) {
+                        this.count = 0;
+                        inv.addItem(this.item);
+                    } else {
+                        this.count = this.count + 1;
+                    }
+                }
+            }
+        }
+    }
+
+    public final MaterialGenerator setItem(@Nonnull Material material) {
+        this.item = new ItemStack(material);
+        return this;
+    }
+
+    public final MaterialGenerator setRate(int rateTicks) {
+        this.rate = Math.max(rateTicks, 2);
+        return this;
+    }
 }
 

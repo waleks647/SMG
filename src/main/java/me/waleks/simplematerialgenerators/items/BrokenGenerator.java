@@ -1,6 +1,6 @@
 package me.waleks.simplematerialgenerators.items;
 
-import org.bukkit.Material;
+import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable;
@@ -9,7 +9,8 @@ import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunIte
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
+
+import javax.annotation.Nonnull;
 
 public class BrokenGenerator extends SimpleSlimefunItem<ItemUseHandler> implements NotPlaceable {
 
@@ -17,11 +18,10 @@ public class BrokenGenerator extends SimpleSlimefunItem<ItemUseHandler> implemen
         super(category, item, recipeType, recipe);
     }
 
+    @Nonnull
     @Override
     public ItemUseHandler getItemHandler() {
-        return e -> {
-            e.cancel();
-        };
+        return PlayerRightClickEvent::cancel;
     }
 
 }
