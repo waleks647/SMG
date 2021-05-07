@@ -7,6 +7,7 @@ import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
+import me.mrCookieSlime.Slimefun.cscorelib2.blocks.BlockPosition;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -17,11 +18,14 @@ import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MaterialGenerator extends SlimefunItem {
 
+    private static final Map<BlockPosition, Integer> generatorProgress = new HashMap<>();
+
     private int rate = 2;
-    private int count = 0;
     private ItemStack item;
 
     @ParametersAreNonnullByDefault
@@ -53,12 +57,16 @@ public class MaterialGenerator extends SlimefunItem {
             if (state instanceof InventoryHolder) {
                 Inventory inv = ((InventoryHolder) state).getInventory();
                 if (inv.firstEmpty() != -1) {
-                    if (this.count >= this.rate) {
-                        this.count = 0;
+                    final BlockPosition pos = new BlockPosition(b);
+                    int progress = generatorProgress.getOrDefault(pos, 0);
+
+                    if (progress >= this.rate) {
+                        progress = 0;
                         inv.addItem(this.item);
                     } else {
-                        this.count = this.count + 1;
+                        progress++;
                     }
+                    generatorProgress.put(pos, progress);
                 }
             }
         }
