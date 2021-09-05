@@ -1,10 +1,10 @@
 package me.waleks.simplematerialgenerators;
 
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import me.mrCookieSlime.Slimefun.cscorelib2.config.Config;
-import me.mrCookieSlime.Slimefun.cscorelib2.updater.GitHubBuildsUpdater;
-import me.mrCookieSlime.Slimefun.cscorelib2.updater.Updater;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -20,8 +20,7 @@ public class SimpleMaterialGenerators extends JavaPlugin implements SlimefunAddo
         Config cfg = new Config(this);
 
         if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
-            Updater updater = new GitHubBuildsUpdater(this, getFile(), "waleks647/SMG/master");
-            updater.start();
+            new GitHubBuildsUpdater(this, getFile(), "waleks647/SMG/master").start();
         }
 
         SMGItemSetup.setup(this);
