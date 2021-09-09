@@ -1,8 +1,8 @@
 package me.waleks.simplematerialgenerators;
 
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 
@@ -10,9 +10,9 @@ public final class SMGItems {
 
     private SMGItems() {}
 
-    public static final Category SMG_ITEM_CATEGORY = new Category(
+    public static final ItemGroup SMG_ITEM_CATEGORY = new ItemGroup(
         new NamespacedKey(SimpleMaterialGenerators.getInstance(), "simplematerialgenerators"),
-        new CustomItem(Material.SMOOTH_STONE, "&9Simple Material Generators")
+        new CustomItemStack(Material.SMOOTH_STONE, "&9Simple Material Generators")
     );
 
     public static final SlimefunItemStack SMG_GENERATOR_MULTIBLOCK = new SlimefunItemStack(
