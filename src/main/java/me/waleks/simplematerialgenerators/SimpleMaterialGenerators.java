@@ -19,7 +19,7 @@ public class SimpleMaterialGenerators extends JavaPlugin implements SlimefunAddo
         Config cfg = new Config(this);
 
         if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
-            new GitHubBuildsUpdater(this, getFile(), "waleks647/SMG/master").start();
+            new GitHubBuildsUpdater(this, getFile(), "Sefiraat/SMG/master").start();
         }
 
         SMGItemSetup.setup(this);
@@ -33,7 +33,7 @@ public class SimpleMaterialGenerators extends JavaPlugin implements SlimefunAddo
     @Nonnull
     @Override
     public String getBugTrackerURL() {
-        return "https://github.com/waleks647/SMG/issues";
+        return "https://github.com/Sefiraat/SMG/issues";
     }
 
     @Nonnull
