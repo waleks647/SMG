@@ -13,7 +13,7 @@ The `Rate` of their production is measured in Slimefun `Ticks`.<br>
 
 ## Downloads
 You can find the prebuilt plugin in:<br>
-https://thebusybiscuit.github.io/builds/waleks647/SMG/master<br>
+https://thebusybiscuit.github.io/builds/Sefiraat/SMG/master/<br>
 
 ## Plans
 There are plans to add more generators in the future (once I figure out how to do it)<br>
