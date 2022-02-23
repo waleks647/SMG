@@ -193,7 +193,7 @@ public final class SMGItemSetup {
                 RecipeType.ORE_CRUSHER,
                 new ItemStack[] {
                         SMGItems.SMG_GENERATOR_COBBLESTONE, null, SMGItems.SMG_GENERATOR_STONE,
-                        null, null, null,
+                        null, SlimefunItems.COBALT_PICKAXE, null,
                         SMGItems.SMG_GENERATOR_SMOOTH_STONE, null, SMGItems.SMG_GENERATOR_NETHERRACK
                 }).register(plugin);
 
