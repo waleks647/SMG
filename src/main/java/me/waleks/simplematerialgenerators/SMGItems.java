@@ -144,4 +144,40 @@ public final class SMGItems {
         "",
         "&9&oSimpleMaterialGenerators"
     );
+
+    public static final SlimefunItemStack SMG_GENERATOR_REDSTONE_BROKEN = new SlimefunItemStack(
+            "SMG_GENERATOR_REDSTONE_BROKEN",
+            Material.REDSTONE_BLOCK,
+            "&cRedstone generator &8(Broken)",
+            "&8Needs to be repaired",
+            "",
+            "&9&oSimpleMaterialGenerators"
+    );
+
+    public static final SlimefunItemStack SMG_GENERATOR_REDSTONE = new SlimefunItemStack(
+            "SMG_GENERATOR_REDSTONE",
+            Material.REDSTONE_BLOCK,
+            "&cRedstone generator",
+            "&6Rate: &e24 ticks",
+            "",
+            "&9&oSimpleMaterialGenerators"
+    );
+
+    public static final SlimefunItemStack SMG_GENERATOR_OBSIDIAN_BROKEN = new SlimefunItemStack(
+            "SMG_GENERATOR_OBSIDIAN_BROKEN",
+            Material.OBSIDIAN,
+            "&5Obsidian generator &8(Broken)",
+            "&8Needs to be repaired",
+            "",
+            "&9&oSimpleMaterialGenerators"
+    );
+
+    public static final SlimefunItemStack SMG_GENERATOR_OBSIDIAN = new SlimefunItemStack(
+            "SMG_GENERATOR_OBSIDIAN",
+            Material.OBSIDIAN,
+            "&5Obsidian generator",
+            "&6Rate: &e128 ticks",
+            "",
+            "&9&oSimpleMaterialGenerators"
+    );
 }

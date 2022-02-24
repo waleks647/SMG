@@ -166,5 +166,47 @@ public final class SMGItemSetup {
             .setItem(Material.SOUL_SAND)
             .setRate(8)
             .register(plugin);
+
+        new BrokenGenerator(SMGItems.SMG_ITEM_CATEGORY,
+                SMGItems.SMG_GENERATOR_REDSTONE_BROKEN,
+                RecipeType.ORE_CRUSHER,
+                new ItemStack[] {
+                        SMGItems.SMG_GENERATOR_SAND, null, SMGItems.SMG_GENERATOR_GRAVEL,
+                        null, null, null,
+                        null, null, null
+                }).register(plugin);
+
+        new MaterialGenerator(SMGItems.SMG_ITEM_CATEGORY,
+                SMGItems.SMG_GENERATOR_REDSTONE,
+                RecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[] {
+                        SMGItems.SMG_GENERATOR_REDSTONE_BROKEN, new ItemStack(Material.REDSTONE_ORE), SMGItems.SMG_GENERATOR_REDSTONE_BROKEN,
+                        SMGItems.SMG_GENERATOR_REDSTONE_BROKEN, SMGItems.SMG_GENERATOR_GRAVEL, SMGItems.SMG_GENERATOR_REDSTONE_BROKEN,
+                        SlimefunItems.DAMASCUS_STEEL_INGOT, SlimefunItems.DURALUMIN_INGOT,  SlimefunItems.DAMASCUS_STEEL_INGOT
+                })
+                .setItem(Material.REDSTONE)
+                .setRate(24)
+                .register(plugin);
+
+        new BrokenGenerator(SMGItems.SMG_ITEM_CATEGORY,
+                SMGItems.SMG_GENERATOR_OBSIDIAN_BROKEN,
+                RecipeType.ORE_CRUSHER,
+                new ItemStack[] {
+                        SMGItems.SMG_GENERATOR_COBBLESTONE, null, SMGItems.SMG_GENERATOR_STONE,
+                        null, SlimefunItems.COBALT_PICKAXE, null,
+                        SMGItems.SMG_GENERATOR_SMOOTH_STONE, null, SMGItems.SMG_GENERATOR_NETHERRACK
+                }).register(plugin);
+
+        new MaterialGenerator(SMGItems.SMG_ITEM_CATEGORY,
+                SMGItems.SMG_GENERATOR_OBSIDIAN,
+                RecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[] {
+                        SlimefunItems.REINFORCED_ALLOY_INGOT, new ItemStack(Material.WATER_BUCKET), SlimefunItems.REINFORCED_ALLOY_INGOT,
+                        SMGItems.SMG_GENERATOR_OBSIDIAN_BROKEN, SMGItems.SMG_GENERATOR_STONE, SMGItems.SMG_GENERATOR_OBSIDIAN_BROKEN,
+                        SMGItems.SMG_GENERATOR_OBSIDIAN_BROKEN, new ItemStack(Material.LAVA_BUCKET),  SMGItems.SMG_GENERATOR_OBSIDIAN_BROKEN
+                })
+                .setItem(Material.OBSIDIAN)
+                .setRate(128)
+                .register(plugin);
     }
 }
