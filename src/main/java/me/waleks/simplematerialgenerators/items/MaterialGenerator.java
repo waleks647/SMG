@@ -1,8 +1,10 @@
 package me.waleks.simplematerialgenerators.items;
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemSetting;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.items.settings.IntRangeSetting;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
 import io.github.thebusybiscuit.slimefun4.libraries.paperlib.PaperLib;
@@ -25,12 +27,14 @@ public class MaterialGenerator extends SlimefunItem {
 
     private static final Map<BlockPosition, Integer> generatorProgress = new HashMap<>();
 
-    private int rate = 2;
+    private final ItemSetting<Integer> rate;
     private ItemStack item;
 
     @ParametersAreNonnullByDefault
-    public MaterialGenerator(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+    public MaterialGenerator(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int defaultRate) {
         super(itemGroup, item, recipeType, recipe);
+        this.rate = new IntRangeSetting(this, "rate", 2, defaultRate, 1000);
+        addItemSetting(this.rate);
     }
 
     @Override
@@ -60,7 +64,7 @@ public class MaterialGenerator extends SlimefunItem {
                     final BlockPosition pos = new BlockPosition(b);
                     int progress = generatorProgress.getOrDefault(pos, 0);
 
-                    if (progress >= this.rate) {
+                    if (progress >= this.rate.getValue()) {
                         progress = 0;
                         inv.addItem(this.item);
                     } else {
@@ -74,11 +78,6 @@ public class MaterialGenerator extends SlimefunItem {
 
     public final MaterialGenerator setItem(@Nonnull Material material) {
         this.item = new ItemStack(material);
-        return this;
-    }
-
-    public final MaterialGenerator setRate(int rateTicks) {
-        this.rate = Math.max(rateTicks, 2);
         return this;
     }
 }
