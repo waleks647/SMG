@@ -51,7 +51,8 @@ public final class SMGItemSetup {
                 SMGItems.SMG_GENERATOR_COBBLESTONE, null, null,
                 null, null, null,
                 null, null, null
-            }).register(plugin);
+            })
+            .register(plugin);
 
         new MaterialGenerator(
             SMGItems.SMG_ITEM_CATEGORY,
@@ -73,7 +74,8 @@ public final class SMGItemSetup {
                 SMGItems.SMG_GENERATOR_STONE, null, null,
                 null, null, null,
                 null, null, null
-            }).register(plugin);
+            })
+            .register(plugin);
 
         new MaterialGenerator(
             SMGItems.SMG_ITEM_CATEGORY,
@@ -96,7 +98,8 @@ public final class SMGItemSetup {
                 SMGItems.SMG_GENERATOR_COBBLESTONE, null, null,
                 null, null, null,
                 null, null, null
-            }).register(plugin);
+            })
+            .register(plugin);
 
         new MaterialGenerator(
             SMGItems.SMG_ITEM_CATEGORY,
@@ -118,7 +121,8 @@ public final class SMGItemSetup {
                 SMGItems.SMG_GENERATOR_GRAVEL, null, null,
                 null, null, null,
                 null, null, null
-            }).register(plugin);
+            })
+            .register(plugin);
 
         new MaterialGenerator(
             SMGItems.SMG_ITEM_CATEGORY,
@@ -170,13 +174,25 @@ public final class SMGItemSetup {
 
         new BrokenGenerator(
             SMGItems.SMG_ITEM_CATEGORY,
-                SMGItems.SMG_GENERATOR_REDSTONE_BROKEN,
-                RecipeType.ORE_CRUSHER,
+                SMGItems.SMG_GENERATOR_REDSTONE_BADLY_FORMED,
+                RecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[] {
                     SMGItems.SMG_GENERATOR_SAND, null, SMGItems.SMG_GENERATOR_GRAVEL,
                     null, null, null,
                     null, null, null
-                }).register(plugin);
+                })
+            .register(plugin);
+
+        new BrokenGenerator(
+            SMGItems.SMG_ITEM_CATEGORY,
+                SMGItems.SMG_GENERATOR_REDSTONE_BROKEN,
+                RecipeType.ORE_CRUSHER,
+                new ItemStack[] {
+                    SMGItems.SMG_GENERATOR_REDSTONE_BADLY_FORMED, null, null,
+                    null, null, null,
+                    null, null, null
+                })
+            .register(plugin);
 
         new MaterialGenerator(
             SMGItems.SMG_ITEM_CATEGORY,
@@ -192,13 +208,25 @@ public final class SMGItemSetup {
 
         new BrokenGenerator(
             SMGItems.SMG_ITEM_CATEGORY,
-            SMGItems.SMG_GENERATOR_OBSIDIAN_BROKEN,
-            RecipeType.ORE_CRUSHER,
+            SMGItems.SMG_GENERATOR_OBSIDIAN_BADLY_FORMED,
+            RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[] {
                 SMGItems.SMG_GENERATOR_COBBLESTONE, null, SMGItems.SMG_GENERATOR_STONE,
                 null, SlimefunItems.COBALT_PICKAXE, null,
                 SMGItems.SMG_GENERATOR_SMOOTH_STONE, null, SMGItems.SMG_GENERATOR_NETHERRACK
-            }).register(plugin);
+            })
+            .register(plugin);
+
+        new BrokenGenerator(
+            SMGItems.SMG_ITEM_CATEGORY,
+            SMGItems.SMG_GENERATOR_OBSIDIAN_BROKEN,
+            RecipeType.ORE_CRUSHER,
+            new ItemStack[] {
+                SMGItems.SMG_GENERATOR_OBSIDIAN_BADLY_FORMED, null, null,
+                null, null, null,
+                null, null, null
+            })
+            .register(plugin);
 
         new MaterialGenerator(
             SMGItems.SMG_ITEM_CATEGORY,

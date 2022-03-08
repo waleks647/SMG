@@ -145,6 +145,15 @@ public final class SMGItems {
         "&9&oSimpleMaterialGenerators"
     );
 
+    public static final SlimefunItemStack SMG_GENERATOR_REDSTONE_BADLY_FORMED = new SlimefunItemStack(
+            "SMG_GENERATOR_REDSTONE_BADLY_FORMED",
+            Material.REDSTONE_BLOCK,
+            "&cRedstone generator &8(Badly Formed)",
+            "&8Needs to be reformed",
+            "",
+            "&9&oSimpleMaterialGenerators"
+    );
+
     public static final SlimefunItemStack SMG_GENERATOR_REDSTONE_BROKEN = new SlimefunItemStack(
             "SMG_GENERATOR_REDSTONE_BROKEN",
             Material.REDSTONE_BLOCK,
@@ -159,6 +168,15 @@ public final class SMGItems {
             Material.REDSTONE_BLOCK,
             "&cRedstone generator",
             "&6Rate: &e24 ticks",
+            "",
+            "&9&oSimpleMaterialGenerators"
+    );
+
+    public static final SlimefunItemStack SMG_GENERATOR_OBSIDIAN_BADLY_FORMED = new SlimefunItemStack(
+            "SMG_GENERATOR_OBSIDIAN_BADLY_FORMED",
+            Material.OBSIDIAN,
+            "&5Obsidian generator &8(Badly Formed)",
+            "&8Needs to be reformed",
             "",
             "&9&oSimpleMaterialGenerators"
     );
